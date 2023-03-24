@@ -11,15 +11,22 @@ services:
     volumes:
       - ./volume/postgres:/var/lib/postgresql/data/
     ports:
-      - 5432:5432
+      - "5432:5432"
   web:
     build: .
     # command: python3 manage.py runserver
-    command: make run-dev
-    restart: on-failure
+    command: >
+      bash -c "
+      sleep 10 &&
+      make migrations &&
+      make migrate &&
+      make run"
     ports:
-      - 8000:8000
-    # links:
-    #   - db
+      - "8000:8000"
+    links:
+      - db
     depends_on:
       - db
+    network_mode: host
+    stdin_open: true
+    tty: true

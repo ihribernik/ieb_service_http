@@ -1,5 +1,5 @@
 """market serializers"""
-from rest_framework import serializers
+from rest_framework import serializers, permissions
 from market.models import Product
 
 
@@ -11,3 +11,4 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
 
         model = Product
         fields = ["id", "buy_price", "sell_price", "description"]
+        permission_classes = [permissions.IsAuthenticated]

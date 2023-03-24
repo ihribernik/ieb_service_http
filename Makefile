@@ -33,10 +33,13 @@ see-coverage:
 	python -m http.server --directory=htmlcov/
 
 migrations:
-	python manage.py makemigrations --settings=ieb_service_http.settings.development
+	python manage.py makemigrations
 
 migrate:
-	python manage.py migrate --settings=ieb_service_http.settings.development
+	python manage.py migrate
+
+run:
+	python manage.py runserver
 
 run-dev:
 	 python manage.py runserver --settings=ieb_service_http.settings.development

@@ -31,6 +31,6 @@ router.register(r"product", views.ProductViewSet)
 
 urlpatterns = [
     path("", include(router.urls)),
-    path('sentry-debug/', trigger_error),
+    path("sentry-debug/", trigger_error),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
 ]

@@ -1,7 +1,9 @@
 """
 market views
 """
-from rest_framework import permissions, viewsets
+from rest_framework import viewsets
+from rest_framework.authentication import BasicAuthentication, SessionAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 from market.models import Product
 from market.serializers import ProductSerializer
@@ -14,4 +16,5 @@ class ProductViewSet(viewsets.ModelViewSet):
 
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permision_classes = [permissions.IsAuthenticated]
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]

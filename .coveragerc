@@ -2,7 +2,7 @@
 plugins = django_coverage_plugin
 omit = */tests/*
        */migrations/*
-
+       */volume/*
 
 [coverage:report]
 fail_under = 80
