@@ -20,6 +20,8 @@ services:
       sleep 10 &&
       make migrations &&
       make migrate &&
+      python manage.py crontab add &&
+      cron &&
       make run"
     ports:
       - "8000:8000"

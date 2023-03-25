@@ -150,5 +150,5 @@ REST_FRAMEWORK = {
 }
 
 CRONJOBS = [
-    ("*/5 * * * *", "django.core.management.call_command", ["update-products"]),
+    ("*/1 * * * *", "django.core.management.call_command", ["update-products"]),
 ]
