@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "django_crontab",
     "ieb_service_http",
     "market",
 ]
@@ -147,3 +148,7 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.SessionAuthentication",
     ]
 }
+
+CRONJOBS = [
+    ("*/5 * * * *", "django.core.management.call_command", ["update-products"]),
+]
