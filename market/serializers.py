@@ -3,7 +3,7 @@ from rest_framework import serializers, permissions
 from market.models import Product
 
 
-class ProductSerializer(serializers.HyperlinkedModelSerializer):
+class ProductSerializer(serializers.ModelSerializer):
     """product serializer"""
 
     class Meta:

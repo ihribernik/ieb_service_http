@@ -22,6 +22,7 @@ services:
       make migrate &&
       python manage.py crontab add &&
       cron &&
+      python manage.py add-superuser &&
       make run"
     ports:
       - "8000:8000"

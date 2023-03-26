@@ -10,9 +10,7 @@ class Command(BaseCommand):
             username = config("DJANGO_ADMIN_USER")
             password = config("DJANGO_ADMIN_PASSWORD")
             email = config("DJANGO_ADMIN_EMAIL")
-            User.objects.create(
-                is_superuser=True, username=username, password=password, email=email
-            )
+            User.objects.create_user(username, email, password)
             print(f"User {username} created ...")
         else:
             print("fails to create superUser, previus user exist...")
