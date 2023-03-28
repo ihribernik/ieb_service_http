@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     "django_crontab",
+    "corsheaders",
     "ieb_service_http",
     "market",
 ]
@@ -63,6 +64,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
 ]
 
 ROOT_URLCONF = "ieb_service_http.urls"
@@ -152,3 +154,5 @@ REST_FRAMEWORK = {
 CRONJOBS = [
     ("*/1 * * * *", "django.core.management.call_command", ["update-products"]),
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
