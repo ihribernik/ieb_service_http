@@ -25,9 +25,3 @@ class TestProductsView(SimpleTestCase):
             username=self.username, password=self.password, email=self.email
         )
         test_user.delete()
-
-    def test_auth(self):
-        ...
-
-    def test_products(self):
-        ...
